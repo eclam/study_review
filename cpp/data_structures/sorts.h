@@ -8,11 +8,12 @@ class sorts
   private:
     std::vector<int> data_vector;
 
-  public:
-    sorts(std::vector<int> *input_vector);
-    ~sorts();
-    void sortsPrintVector();
 
+  public:
+    sorts(std::vector<int> input_vector);
+    ~sorts();
+
+    void sortsPrintVector();
 };
 
 #endif

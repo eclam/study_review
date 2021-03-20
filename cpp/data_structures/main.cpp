@@ -10,6 +10,8 @@ int main()
   std::vector<int> reverse_vector = {6, 5, 4, 3, 2, 1};
   std::vector<int> null_vector = {};
 
+  sorts test_sort(unsorted_vector);
+  sorts test_sort2(sorted_vector);
 
   return 0;
 }

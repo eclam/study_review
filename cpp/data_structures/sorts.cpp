@@ -4,7 +4,10 @@
 
 sorts::sorts(std::vector<int> input_vector)
 {
-  data_vector = input_vector;
+  for(std::vector<int>::iterator i = input_vector.begin(); i != input_vector.end(); ++i) {
+    std::cout << *i << std::endl;
+    data_vector.push_back(*i);
+  }
 }
 
 sorts::~sorts()
