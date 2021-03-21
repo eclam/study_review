@@ -6,14 +6,16 @@
 class sorts
 {
   private:
-    std::vector<int> data_vector;
-
+    // std::vector<int> data_vector;
+    const void sortsPrintVector(std::vector<int> input_vector);
 
   public:
-    sorts(std::vector<int> input_vector);
+    // sorts(std::vector<int> input_vector);
+    sorts();
     ~sorts();
 
-    void sortsPrintVector();
+    std::vector<int> insertionSort(std::vector<int> input_vector);
+    std::vector<int> insertionSortFromEnd(std::vector<int> input_vector);
 };
 
 #endif
