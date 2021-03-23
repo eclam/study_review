@@ -59,6 +59,15 @@ std::vector<int> sorts::insertionSortFromEnd(std::vector<int> input_vector)
       sortsPrintVector(input_vector);
     }
   }
+
+  // for(auto i = input_vector.rbegin()+1; i != input_vector.rend(); i++)
+  // {
+  //   for (auto k = i-1; k >= input_vector.rbegin() && *k < *(k+1); k--)
+  //   {
+  //     std::iter_swap(k, k+1);
+  //     sortsPrintVector(input_vector);
+  //   }
+  // }
   return input_vector;
 }
 
@@ -108,3 +117,46 @@ std::vector<int> sorts::bubbleSortFromEnd(std::vector<int> input_vector)
   return input_vector;
 }
 
+std::vector<int> sorts::selectionSort(std::vector<int> input_vector)
+{
+  sortsPrintVector(input_vector);
+  for(auto i = input_vector.begin(); i != input_vector.end(); i++)
+  {
+    for (auto k = i+1; k != input_vector.end(); k++)
+    {
+      if (*k < *i)
+        std::iter_swap(i, k);
+
+      sortsPrintVector(input_vector);
+    }
+  }
+
+  return input_vector;
+}
+
+std::vector<int> sorts::selectionSortFromEnd(std::vector<int> input_vector)
+{
+  sortsPrintVector(input_vector);
+  for(auto i = input_vector.end()-1; i != input_vector.begin()-1; i--)
+  {
+    for (auto k = i-1; k != input_vector.begin()-1; k--)
+    {
+      if (*k > *i)
+        std::iter_swap(i, k);
+
+      sortsPrintVector(input_vector);
+    }
+  }
+
+  return input_vector;
+}
+
+std::vector<int> sorts::quickSort(std::vector<int> input_vector)
+{
+  return input_vector;
+}
+
+std::vector<int> sorts::mergeSort(std::vector<int> input_vector)
+{
+  return input_vector;
+}

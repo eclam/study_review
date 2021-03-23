@@ -20,6 +20,13 @@ class sorts
     std::vector<int> bubbleSort(std::vector<int> input_vector);
     std::vector<int> bubbleSortFromEnd(std::vector<int> input_vector);
 
+    std::vector<int> selectionSort(std::vector<int> input_vector);
+    std::vector<int> selectionSortFromEnd(std::vector<int> input_vector);
+
+    std::vector<int> quickSort(std::vector<int> input_vector);
+
+    std::vector<int> mergeSort(std::vector<int> input_vector);
+
 };
 
 #endif
