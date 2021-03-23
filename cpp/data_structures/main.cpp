@@ -13,8 +13,12 @@ int main()
   std::vector<char> char_vector = {'a', 'd', 'b', 'c','e','z','s','x'};
   sorts test_sorts;
 
-  auto reverse_sorted = test_sorts.insertionSort(reverse_sorted_vector);
-  auto reverse_sorted_from_end = test_sorts.insertionSortFromEnd(reverse_sorted_vector);
+  // auto insertion_sort_test = test_sorts.insertionSort(reverse_sorted_vector);
+  // auto insertion_sort_test_from_end = test_sorts.insertionSortFromEnd(reverse_sorted_vector);
+
+  // auto bubble_sort_test = test_sorts.bubbleSort(reverse_sorted_vector);
+  // auto bubble_sort_test_from_end = test_sorts.bubbleSortFromEnd(reverse_sorted_vector);
+
 
   return 0;
 }

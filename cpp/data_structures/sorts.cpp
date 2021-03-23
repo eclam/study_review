@@ -62,3 +62,49 @@ std::vector<int> sorts::insertionSortFromEnd(std::vector<int> input_vector)
   return input_vector;
 }
 
+std::vector<int> sorts::bubbleSort(std::vector<int> input_vector)
+{
+  sortsPrintVector(input_vector);
+  for(auto k = input_vector.end()-1; k != input_vector.begin(); k--)
+  {
+    bool swap_flag = false;
+    for(auto i = input_vector.begin(); i != k; i++)
+    {
+      if (*i > *(i+1)){
+        std::iter_swap(i,i+1);
+        swap_flag = true;
+      }
+      sortsPrintVector(input_vector);
+    }
+    if (swap_flag == false)
+    {
+      break;
+    }
+  }
+
+  return input_vector;
+}
+
+std::vector<int> sorts::bubbleSortFromEnd(std::vector<int> input_vector)
+{
+  sortsPrintVector(input_vector);
+  for(auto k = input_vector.begin(); k != input_vector.end(); k++)
+  {
+    bool swap_flag = false;
+    for(auto i = input_vector.end()-1; i != k-1; i--)
+    {
+      if (*i < *(i-1)){
+        std::iter_swap(i,i-1);
+        swap_flag = true;
+      }
+      sortsPrintVector(input_vector);
+    }
+    if (swap_flag == false)
+    {
+      break;
+    }
+  }
+
+  return input_vector;
+}
+

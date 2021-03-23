@@ -16,6 +16,10 @@ class sorts
 
     std::vector<int> insertionSort(std::vector<int> input_vector);
     std::vector<int> insertionSortFromEnd(std::vector<int> input_vector);
+
+    std::vector<int> bubbleSort(std::vector<int> input_vector);
+    std::vector<int> bubbleSortFromEnd(std::vector<int> input_vector);
+
 };
 
 #endif
