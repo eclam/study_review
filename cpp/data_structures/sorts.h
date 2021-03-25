@@ -9,6 +9,10 @@ class sorts
     // std::vector<int> data_vector;
     const void sortsPrintVector(std::vector<int> input_vector);
 
+    // QuickSort Helpers
+    int quickSortPartition(std::vector<int> &input_vector, int begin, int end);
+    std::vector<int> quickSortHelper(std::vector<int> &input_vector, int begin, int end);
+
   public:
     // sorts(std::vector<int> input_vector);
     sorts();
@@ -23,7 +27,7 @@ class sorts
     std::vector<int> selectionSort(std::vector<int> input_vector);
     std::vector<int> selectionSortFromEnd(std::vector<int> input_vector);
 
-    std::vector<int> quickSort(std::vector<int> input_vector);
+    std::vector<int> quickSort(std::vector<int> input_vector); // takes first iterator as pivot
 
     std::vector<int> mergeSort(std::vector<int> input_vector);
 

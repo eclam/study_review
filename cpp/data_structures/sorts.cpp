@@ -151,8 +151,51 @@ std::vector<int> sorts::selectionSortFromEnd(std::vector<int> input_vector)
   return input_vector;
 }
 
+int sorts::quickSortPartition(std::vector<int> &input_vector, int begin, int end)
+{
+  auto pivot = input_vector[end];
+  auto left_ptr = begin;
+  auto right_ptr = end-1;
+
+  while (true)
+  {
+    for (int i = left_ptr; i < end && input_vector[i] < pivot; i++)
+      left_ptr++;
+
+    for (int i = right_ptr; i > 0 && input_vector[i] > pivot; i++)
+      right_ptr--;
+
+    if (left_ptr >= right_ptr)
+      break;
+    else
+    {
+      std::swap(input_vector[left_ptr], input_vector[right_ptr]);
+      sortsPrintVector(input_vector);
+    }
+  }
+  std::swap(input_vector[left_ptr], input_vector[end]);
+  sortsPrintVector(input_vector);
+
+  return left_ptr;
+}
+
+std::vector<int> sorts::quickSortHelper(std::vector<int> &input_vector, int begin, int end)
+{
+  sortsPrintVector(input_vector);
+  if (end - begin > 0)
+  {
+    auto partition_index = quickSortPartition(input_vector, begin, end);
+
+    quickSortHelper(input_vector, begin, partition_index-1);
+    quickSortHelper(input_vector, partition_index+1, end);
+  }
+  return input_vector;
+}
+
 std::vector<int> sorts::quickSort(std::vector<int> input_vector)
 {
+  quickSortHelper(input_vector, 0, input_vector.size()-1);
+  sortsPrintVector(input_vector);
   return input_vector;
 }
 

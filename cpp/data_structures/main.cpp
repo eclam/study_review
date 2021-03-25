@@ -22,5 +22,7 @@ int main()
   // auto selection_sort_test = test_sorts.selectionSort(reverse_sorted_vector);
   // auto selection_sort_test = test_sorts.selectionSortFromEnd(reverse_sorted_vector);
 
+  // auto quick_sort_test = test_sorts.quickSort(reverse_sorted_vector);
+
   return 0;
 }
