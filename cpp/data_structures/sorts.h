@@ -10,8 +10,10 @@ class sorts
     const void sortsPrintVector(std::vector<int> input_vector);
 
     // QuickSort Helpers
-    int quickSortPartition(std::vector<int> &input_vector, int begin, int end);
-    std::vector<int> quickSortHelper(std::vector<int> &input_vector, int begin, int end);
+    int quickSortPartition(std::vector<int>& input_vector, int begin, int end);
+    void quickSortHelper(std::vector<int>& input_vector, int begin, int end);
+
+    std::vector<int> mergeSortHelper(std::vector<int>& left, std::vector<int>& right);
 
   public:
     // sorts(std::vector<int> input_vector);
