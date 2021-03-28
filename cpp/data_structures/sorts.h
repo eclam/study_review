@@ -13,7 +13,8 @@ class sorts
     int quickSortPartition(std::vector<int>& input_vector, int begin, int end);
     void quickSortHelper(std::vector<int>& input_vector, int begin, int end);
 
-    std::vector<int> mergeSortHelper(std::vector<int>& left, std::vector<int>& right);
+    std::vector<int> mergeSortHelper(std::vector<int>& input_vector);
+    std::vector<int>& mergeSortStitcher(std::vector<int>& input_vector, std::vector<int>& left, std::vector<int>& right);
 
   public:
     // sorts(std::vector<int> input_vector);

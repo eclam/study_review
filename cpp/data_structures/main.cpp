@@ -24,7 +24,7 @@ int main()
 
   // auto quick_sort_test = test_sorts.quickSort(reverse_sorted_vector);
 
-  // auto merge_sort_test = test_sorts.mergeSort(reverse_sorted_vector);
+  auto merge_sort_test = test_sorts.mergeSort(reverse_sorted_vector);
 
   return 0;
 }
