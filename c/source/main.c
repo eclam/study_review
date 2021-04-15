@@ -1,7 +1,9 @@
-#import <stdlib.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 int main()
 {
+    printf("%d\n", (1/2));
 
-  return 0;
+    return 0;
 }
