@@ -1,0 +1,1 @@
+add_library(C_StudyReview c_study_review.c)
