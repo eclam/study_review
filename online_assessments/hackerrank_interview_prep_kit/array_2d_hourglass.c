@@ -53,6 +53,7 @@ int main() {
         arr[5][i] = arr5[i];
     }
 
+    // REFERENCE https://stackoverflow.com/questions/34188355/cannot-convert-int-size-to-int
     printf("%d\n", hourglassSum(arr_rows, arr_columns, arr));
 
     for (int i = 0; i < arr_rows; i++) {
