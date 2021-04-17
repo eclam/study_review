@@ -1,5 +1,5 @@
 // Problem Taken from:
-//       
+//
 #include <assert.h>
 #include <limits.h>
 #include <math.h>
@@ -12,6 +12,7 @@
 
 
 int main() {
+    // printf("%d\n",); // print int
+    // printf("%ld\n",); // print long
 
-    // printf("%d\n",);
 }
