@@ -1,55 +1,62 @@
 // Problem Taken from:
 //      https://leetcode.com/problems/longest-well-performing-interval/
 #include <iostream>
+#include <map>
+#include <unordered_map>
 #include <vector>
 using namespace std;
 
-int longestWPI(vector<int>& hours) {
-    vector<int> day_prefix_sum;
-    day_prefix_sum.push_back(0);
+int longestWPI_iters(vector<int>& hours) {  // Using Iterators -> too slow (fastest time was 32ms)
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(false);
+
+    unordered_map<int, int> pre_img;
+    unordered_map<int, int>::iterator map_iter;
+
+    auto net_val = 0;
+    auto max_WPI = 0;
+    auto idx_num = 0;
 
     auto hour_expr = [](int val) {if (val > 8) return 1;return -1; };
-    for (auto idx = hours.begin(); idx != hours.end(); ++idx) {         // make prefix sums
-        day_prefix_sum.push_back(day_prefix_sum[day_prefix_sum.size() - 1] + hour_expr(*idx));
+    for (auto idx = hours.begin(); idx != hours.end(); ++idx) {
+        idx_num = distance(hours.begin(), idx);
+
+        net_val += hour_expr(*idx);
+        max_WPI = (net_val > 0) ? (idx_num + 1) : max_WPI;
+
+        pre_img.insert(pre_img.begin(), pair<int, int>(net_val, idx_num));  // checks automatically if net_val exists in map
+        map_iter = pre_img.find(net_val - 1);
+        max_WPI  = (map_iter != pre_img.end()) ? max(max_WPI, (idx_num - map_iter->second)) : max_WPI;
     }
 
-    cout << "DAY PREFIX SUM  : { ";
-    for (auto& i : day_prefix_sum) {
-        cout << i << " ";
-    }
-    cout << "}\n";
+    return max_WPI;
+}
 
-    vector<int> day_stack;
-    for (int i = 0; i <= hours.size(); i++) {
-        if (day_stack.empty() || day_prefix_sum[day_stack[day_stack.size() - 1]] > day_prefix_sum[i]) {
-            if (!day_stack.empty()) {
-                auto temp = day_prefix_sum[day_stack[day_stack.size() - 1]];
-                cout << "\ni : " << i << "\n"
-                     << " | Day Stack End iter : " << day_stack[day_stack.size() - 1]
-                     << " | day_prefix_sum[j] : " << temp
-                     << " | day_prefix_sum[i] : " << day_prefix_sum[i] << "\n";
+int longestWPI(vector<int>& hours) {  // Using indexes -> 20ms
+    cin.tie(0);
+    cout.tie(0);
+    ios_base::sync_with_stdio(false);
+
+    auto n       = hours.size();
+    auto net_val = 0;
+    auto max_WPI = 0;
+
+    unordered_map<int, int> pre_img;
+    pre_img.reserve(n);
+
+    for (int idx = 0; idx < n; ++idx) {
+        net_val += (hours[idx] > 8) ? 1 : -1;
+        max_WPI = (net_val > 0) ? idx + 1 : max_WPI;
+        if (net_val <= 0) {
+            if (pre_img.find(net_val) == pre_img.end()) {
+                pre_img[net_val] = idx;
             }
-
-            day_stack.push_back(i);
+            max_WPI = (pre_img.find(net_val - 1) != pre_img.end()) ? max(max_WPI, idx - pre_img[net_val - 1]) : max_WPI;
         }
     }
 
-    cout << "DAY STACK  : { ";
-    for (auto& i : day_stack) {
-        cout << i << " ";
-    }
-    cout << "}\n";
-
-    auto max_consec_sum_num = 0;
-    for (int i = hours.size(); i >= 0; --i) {
-        while (!day_stack.empty() && day_prefix_sum[day_stack[day_stack.size() - 1]] < day_prefix_sum[i]) {
-            max_consec_sum_num = max(max_consec_sum_num, i - day_stack[day_stack.size() - 1]);
-            day_stack.pop_back();
-        }
-    }
-
-
-    return max_consec_sum_num;
+    return max_WPI;
 }
 
 int main() {
