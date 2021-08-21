@@ -2,6 +2,7 @@
 **/settings.json
 **/build
 
+# C/C++ CMake Ignore
 **/CMakeLists.txt.user
 **/CMakeCache.txt
 **/CMakeFiles
@@ -13,3 +14,10 @@
 **/compile_commands.json
 **/CTestTestfile.cmake
 **/_deps
+
+# Java Ignore
+java/mooc_uni_of_helsinki_course/**/target
+java/mooc_uni_of_helsinki_course/**/src/test
+java/mooc_uni_of_helsinki_course/**/*.json
+java/mooc_uni_of_helsinki_course/**/*.xml
+java/mooc_uni_of_helsinki_course/**/*.yml
