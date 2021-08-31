@@ -1,6 +1,7 @@
 **/*.log
 **/settings.json
 **/build
+**/.cph
 
 # C/C++ CMake Ignore
 **/CMakeLists.txt.user
