@@ -23,3 +23,6 @@ java/mooc_uni_of_helsinki_course/**/src/test
 java/mooc_uni_of_helsinki_course/**/*.json
 java/mooc_uni_of_helsinki_course/**/*.xml
 java/mooc_uni_of_helsinki_course/**/*.yml
+
+# Python Ignore
+**/__pycache__/*
