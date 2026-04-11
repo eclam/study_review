@@ -93,6 +93,15 @@ class LinkedList:
 
         return slow_pointer
 
+    def node_generator(self):
+        if not self.head:
+            yield None
+
+        node = self.head
+        while node:
+            yield node.data
+            node = node.next
+
 def basic_test():
     linkedlist = LinkedList()
     linkedlist.reverse_link_list()
@@ -152,6 +161,29 @@ def get_mid_node_test():
     assert(linkedlist.get_mid_node().data == 4)
     linkedlist.display_content()
 
+def node_gen_test():
+    linkedlist = LinkedList()
+
+    no_node_gen = linkedlist.node_generator()
+    assert(next(no_node_gen) == None)
+
+    linkedlist.append(0)
+    one_node_gen = linkedlist.node_generator()
+    assert(next(one_node_gen) == 0)
+
+    linkedlist.append(1)
+    linkedlist.append(2)
+    linkedlist.append(3)
+    linkedlist.append(4)
+
+    node_gen = linkedlist.node_generator()
+    for count, node_data in enumerate(node_gen):
+        assert(count == node_data)
+        print(f"count:[{count}] == node_data:[{node_data}]")
+
+    assert(linkedlist.node_generator)
+
 if __name__ == "__main__":
     # basic_test()
-    get_mid_node_test()
+    # get_mid_node_test()
+    node_gen_test()

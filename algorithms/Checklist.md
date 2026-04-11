@@ -8,7 +8,7 @@
 
 -    [ ] Advanced Linked List topics
      -    [ ] Linked List Generators
-     -    [ ] get middle of linked list (3 methods)
+     -    [x] get middle of linked list (3 methods)
      -    [ ] get i-th iter (backwards & forwards)
      -    [ ] deletion at i-th position
      -    [ ] remove dupes
