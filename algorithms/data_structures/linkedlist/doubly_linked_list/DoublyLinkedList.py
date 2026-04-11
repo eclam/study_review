@@ -86,6 +86,26 @@ class DoublyLinkedList:
 
         self.head = previous_node
 
+    def get_mid_node(self):
+        '''
+            Turtoise & Hare Method
+            Cases to handle:
+                - empty case ==> Return None
+                - Single Element ==> return 1st node
+                - 2 nodes ==> return 1st case
+                - odd number
+                - even number
+        '''
+        if not self.head:
+            return None
+
+        fast_pointer = slow_pointer = self.head
+
+        while fast_pointer and fast_pointer.next:
+            slow_pointer = slow_pointer.next
+            fast_pointer = fast_pointer.next.next
+
+        return slow_pointer
 
 
 if __name__ == "__main__":

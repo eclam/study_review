@@ -1,4 +1,5 @@
 from Node import Node
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -10,7 +11,7 @@ class LinkedList:
             self.head = new_node
             return
 
-        last = self.head
+        last_node = self.head
         while last_node.next:
             last_node = last_node.next
 
@@ -71,9 +72,28 @@ class LinkedList:
 
         self.head = previous_node
 
+    def get_mid_node(self):
+        '''
+            Turtoise & Hare Method
+            Cases to handle:
+                - empty case ==> Return None
+                - Single Element ==> return 1st node
+                - 2 nodes ==> return 1st case
+                - odd number
+                - even number
+        '''
+        if not self.head:
+            return None
 
+        fast_pointer = slow_pointer = self.head
 
-if __name__ == "__main__":
+        while fast_pointer and fast_pointer.next:
+            slow_pointer = slow_pointer.next
+            fast_pointer = fast_pointer.next.next
+
+        return slow_pointer
+
+def basic_test():
     linkedlist = LinkedList()
     linkedlist.reverse_link_list()
     linkedlist.append(1)
@@ -93,3 +113,45 @@ if __name__ == "__main__":
     print('Reverse 1 element linked list: END')
     print(f"Popped Element: {linkedlist.pop_right().data}")
     linkedlist.display_content()
+
+def get_mid_node_test():
+    linkedlist = LinkedList()
+
+    if(linkedlist.get_mid_node() == None):
+        print('Successful -- 0 Node Case is None')
+    else:
+        print('Unsuccessful -- 0 Node case is not None')
+
+    linkedlist.append(0)
+    assert(linkedlist.get_mid_node().data == 0)
+    linkedlist.display_content()
+
+    linkedlist.append(1)
+    print(f"2 Node Case: {linkedlist.get_mid_node().data}")
+    assert(linkedlist.get_mid_node().data == 1)
+    linkedlist.display_content()
+
+    linkedlist.append(2)
+    print(f"Basic Odd # Node Case: {linkedlist.get_mid_node().data}")
+    assert(linkedlist.get_mid_node().data == 1)
+    linkedlist.display_content()
+
+    linkedlist.append(3)
+    print(f"Basic Even # Node Case: {linkedlist.get_mid_node().data}")
+    assert(linkedlist.get_mid_node().data == 2)
+    linkedlist.display_content()
+
+    linkedlist.append(4)
+    linkedlist.append(5)
+    linkedlist.append(6)
+    print(f"Odd # Node Case: {linkedlist.get_mid_node().data}")
+    assert(linkedlist.get_mid_node().data == 3)
+    linkedlist.display_content()
+    linkedlist.append(7)
+    print(f"Odd Even # Node Case: {linkedlist.get_mid_node().data}")
+    assert(linkedlist.get_mid_node().data == 4)
+    linkedlist.display_content()
+
+if __name__ == "__main__":
+    # basic_test()
+    get_mid_node_test()
